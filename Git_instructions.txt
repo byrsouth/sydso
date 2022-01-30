@@ -1,0 +1,5 @@
+1.) "git pull"
+2.) add the files to folder. Once the files are added
+3.) "git add ."
+4.) "git commit -m 'message here'"
+5)  "git push"
