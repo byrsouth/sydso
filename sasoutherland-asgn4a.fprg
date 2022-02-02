@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="sydso"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-02-01 10:20:21 PM"/>
+        <attribute name="created" value="c3lkc287U1lEUy1DT01QVVRFUjsyMDIyLTAxLTMxOzA3OjI2OjI0IFBNOzI4Mjk="/>
+        <attribute name="edited" value="c3lkc287U1lEUy1DT01QVVRFUjsyMDIyLTAyLTAxOzEwOjIwOjIxIFBNOzQ7MjkyMw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="packageWeight" type="Real" array="False" size=""/>
+            <declare name="XLpackage" type="Real" array="False" size=""/>
+            <declare name="LARGEpackage" type="Real" array="False" size=""/>
+            <declare name="MEDIUMpackage" type="Real" array="False" size=""/>
+            <declare name="SMALLpackage" type="Real" array="False" size=""/>
+            <assign variable="XLpackage" expression="4.10"/>
+            <assign variable="LARGEpackage" expression="3.50"/>
+            <assign variable="MEDIUMpackage" expression="2.25"/>
+            <assign variable="SMALLpackage" expression="1.00"/>
+            <call expression="welcome"/>
+            <output expression="&quot;Please enter the weight of your package.&quot;" newline="True"/>
+            <input variable="packageweight"/>
+            <call expression="calcShipping(packageWeight, SMALLpackage, MEDIUMpackage, LARGEpackage, XLpackage)"/>
+        </body>
+    </function>
+    <function name="calcShipping" type="None" variable="">
+        <parameters>
+            <parameter name="packageWeight" type="Real" array="False"/>
+            <parameter name="SMALLpackage" type="Real" array="False"/>
+            <parameter name="MEDIUMpackage" type="Real" array="False"/>
+            <parameter name="LARGEpackage" type="Real" array="False"/>
+            <parameter name="XLpackage" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="shippingCost" type="Real" array="False" size=""/>
+            <if expression="packageWeight &lt;= 2">
+                <then>
+                    <assign variable="shippingCost" expression="packageWeight * SMALLpackage"/>
+                </then>
+                <else>
+                    <if expression="packageWeight &lt;= 6">
+                        <then>
+                            <assign variable="shippingCost" expression="packageWeight * MEDIUMpackage"/>
+                        </then>
+                        <else>
+                            <if expression="packageWeight &lt;= 10">
+                                <then>
+                                    <assign variable="shippingCost" expression="packageWeight * LARGEpackage"/>
+                                </then>
+                                <else>
+                                    <assign variable="shippingCost" expression="packageWeight * XLpackage"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+            <output expression="&quot;Your total shipping fee is: $&quot;&amp;shippingCost" newline="True"/>
+        </body>
+    </function>
+    <function name="shippingReport" type="None" variable="">
+        <parameters>
+            <parameter name="packageWeight" type="Real" array="False"/>
+            <parameter name="shippingCost" type="Real" array="False"/>
+        </parameters>
+        <body/>
+    </function>
+    <function name="welcome" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;Welcome. This program will calculate your total shipping cost.&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
