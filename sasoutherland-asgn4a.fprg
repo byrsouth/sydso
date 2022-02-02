@@ -4,13 +4,15 @@
         <attribute name="name" value=""/>
         <attribute name="authors" value="sydso"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2022-02-01 10:20:21 PM"/>
+        <attribute name="saved" value="2022-02-01 11:10:45 PM"/>
         <attribute name="created" value="c3lkc287U1lEUy1DT01QVVRFUjsyMDIyLTAxLTMxOzA3OjI2OjI0IFBNOzI4Mjk="/>
         <attribute name="edited" value="c3lkc287U1lEUy1DT01QVVRFUjsyMDIyLTAyLTAxOzEwOjIwOjIxIFBNOzQ7MjkyMw=="/>
+        <attribute name="edited" value="Ymtzb3U7U09VVEhHQVRFOzIwMjItMDItMDE7MTE6MTA6NDUgUE07ODsyNjIw"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
+            <declare name="packageRate" type="Real" array="False" size=""/>
             <declare name="packageWeight" type="Real" array="False" size=""/>
             <declare name="XLpackage" type="Real" array="False" size=""/>
             <declare name="LARGEpackage" type="Real" array="False" size=""/>
@@ -23,42 +25,31 @@
             <call expression="welcome"/>
             <output expression="&quot;Please enter the weight of your package.&quot;" newline="True"/>
             <input variable="packageweight"/>
-            <call expression="calcShipping(packageWeight, SMALLpackage, MEDIUMpackage, LARGEpackage, XLpackage)"/>
-        </body>
-    </function>
-    <function name="calcShipping" type="None" variable="">
-        <parameters>
-            <parameter name="packageWeight" type="Real" array="False"/>
-            <parameter name="SMALLpackage" type="Real" array="False"/>
-            <parameter name="MEDIUMpackage" type="Real" array="False"/>
-            <parameter name="LARGEpackage" type="Real" array="False"/>
-            <parameter name="XLpackage" type="Real" array="False"/>
-        </parameters>
-        <body>
-            <declare name="shippingCost" type="Real" array="False" size=""/>
             <if expression="packageWeight &lt;= 2">
                 <then>
-                    <assign variable="shippingCost" expression="packageWeight * SMALLpackage"/>
+                    <assign variable="packageRate" expression="SMALLpackage"/>
                 </then>
                 <else>
-                    <if expression="packageWeight &lt;= 6">
+                    <if expression="2 &lt; packageWeight &amp;&amp;&#13;&#10;packageWeight &lt;=6">
                         <then>
-                            <assign variable="shippingCost" expression="packageWeight * MEDIUMpackage"/>
+                            <assign variable="packageRate" expression="MEDIUMpackage"/>
                         </then>
-                        <else>
-                            <if expression="packageWeight &lt;= 10">
-                                <then>
-                                    <assign variable="shippingCost" expression="packageWeight * LARGEpackage"/>
-                                </then>
-                                <else>
-                                    <assign variable="shippingCost" expression="packageWeight * XLpackage"/>
-                                </else>
-                            </if>
-                        </else>
+                        <else/>
                     </if>
                 </else>
             </if>
-            <output expression="&quot;Your total shipping fee is: $&quot;&amp;shippingCost" newline="True"/>
+            <call expression="calcShipping(packageWeight,packageRate)"/>
+        </body>
+    </function>
+    <function name="calcShipping" type="Real" variable="total">
+        <parameters>
+            <parameter name="packageWeight" type="Real" array="False"/>
+            <parameter name="packageRate" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="total" type="Real" array="False" size=""/>
+            <assign variable="total" expression="packageWeight * packageRate"/>
+            <output expression="&quot;Your total shipping fee is: $&quot;&amp;total" newline="True"/>
         </body>
     </function>
     <function name="shippingReport" type="None" variable="">
