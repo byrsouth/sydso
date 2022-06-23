@@ -42,4 +42,9 @@ function showError(errorMsg) {
     messages.style.color = 'yellow';
     messages.innerHTML = errorMsg;
     messages.style.textAlign = 'center';
+
+    setTimeout( () =>{
+        messages.innerHTML = '';
+        messages.style.background = 'white';
+    }, 3000);
 }
