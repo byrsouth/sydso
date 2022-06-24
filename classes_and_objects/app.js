@@ -18,22 +18,17 @@ calcBtn.addEventListener('click', () => {
 
 function calculate(cents) {
     let amount = cents;
-    
-    let qtr = Math.floor(amount / denomination.quarters);
+
+    document.getElementById('quarters').innerHTML = Math.floor(amount / denomination.quarters);
     amount = (amount % denomination.quarters);
 
-    let dms = Math.floor(amount / denomination.dimes);
+    document.getElementById('dimes').innerHTML = Math.floor(amount / denomination.dimes);
     amount = (amount % denomination.dimes);
 
-    let nck = Math.floor(amount / denomination.nickels);
+    document.getElementById('nickels').innerHTML = Math.floor(amount / denomination.nickels);
     amount = (amount % denomination.nickels);
 
-    let pns = Math.floor(amount / denomination.pennies);
-
-    document.getElementById('quarters').innerHTML = qtr;
-    document.getElementById('dimes').innerHTML = dms;
-    document.getElementById('nickels').innerHTML = nck;
-    document.getElementById('pennies').innerHTML = pns;
+    document.getElementById('pennies').innerHTML = Math.floor(amount / denomination.pennies);
 }
 
 function message(msg) {
