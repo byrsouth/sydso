@@ -8,15 +8,15 @@ const denomination = {
 
 calcBtn.addEventListener('click', () => {
     const inputTxt = document.getElementById('input');
-    let amount = parseInt(inputTxt.value);
+    let amount = parseFloat(inputTxt.value);
     if (!isNaN(amount)) {
         calculate(amount);
+    } else {
+        message("Please enter an number");
     }
 });
 
 function calculate(cents) {
-    let amount = cents;
-
     let qtr = Math.floor(amount / denomination.quarters);
     amount = (amount % denomination.quarters);
 
@@ -32,11 +32,11 @@ function calculate(cents) {
     document.getElementById('dimes').innerHTML = dms;
     document.getElementById('nickels').innerHTML = nck;
     document.getElementById('pennies').innerHTML = pns;
+}
 
-
-
-
-
-
-
+function message(msg) {
+    document.getElementById('messages').innerHTML = msg;
+    setTimeout(() => {
+        document.getElementById('messages').innerHTML = '';
+    }, 5000);
 }
