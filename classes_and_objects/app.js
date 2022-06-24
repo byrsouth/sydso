@@ -17,7 +17,7 @@ calcBtn.addEventListener('click', () => {
 });
 
 function calculate(cents) {
-    let amount = cents;
+    let amount = cents * 100;
 
     document.getElementById('quarters').innerHTML = Math.floor(amount / denomination.quarters);
     amount = (amount % denomination.quarters);
