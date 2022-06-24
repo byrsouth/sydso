@@ -17,6 +17,8 @@ calcBtn.addEventListener('click', () => {
 });
 
 function calculate(cents) {
+    let amount = cents;
+    
     let qtr = Math.floor(amount / denomination.quarters);
     amount = (amount % denomination.quarters);
 
