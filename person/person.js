@@ -1,21 +1,42 @@
-const personBtn = document.getElementById("showPerson");
-//let displayPerson = document.getElementById("displayPerson")
-personBtn.addEventListener("click", () => {
-    let personID = {
-        showInfo: function () {
-            return this.firstName + " " + this.lastName + " " + "has the role of " + this.role + " in " + this.course + " section " + this.section + ".";
-        }
-    }
-    let person = Object.create(personID);
-    person.firstName = document.getElementById("firstName").value;
-    person.lastName = document.getElementById("lastName").value;
-    person.course = document.getElementById("course").value;
-    person.section = document.getElementById("section").value;
-    person.role = document.getElementById("role").value;
+ Person = function() {
+    this.firstName = '';
+    this.lastName = '';
+    this.course = '';
+    this.sectionNumber = '';
+    this.role = '';    
+};
 
-    document.getElementById("displayPerson").innerHTML = person.showInfo();
-});
+Person.prototype.printCourseInfo = function() {
+    return this.firstName + ' ' + this.lastName + ' has the role of ' + this.role + ' in class ' + this.course + ' section '  + this.sectionNumber ;
+}
 
-// console.log(personID.showInfo());
+Person.prototype.setFirstName = function(fname) {
+    this.firstName = fname;
+}
+
+Person.prototype.getFirstName = function () {
+    return this.firstName
+}
+
+Person.prototype.getLastName = function () {
+    return this.lastName;
+}
+
+Person.prototype.getCourse = function () {
+    return this.course;
+}
+
+Person.prototype.getSectionNumber = function () {
+  return this.sectionNumber;
+}
+
+
+Person.prototype.getRole = function () {
+    return this.role;
+}
+
+Person.prototype.getFullName = function () {
+    return this.Fisrt + ' ' + this.LastName;
+}
 
 
