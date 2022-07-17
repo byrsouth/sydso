@@ -1,6 +1,12 @@
 document.getElementById('createResume').addEventListener('click', buildResume2);
+
+//Internal properties
 const codingSkills = [];
+const workEthic = [];
+const otherSkills = [];
 const employmentDetails = [];
+
+//Form Controls
 const skillForm = document.getElementById('codingSkills');
 const addNewSkillBtn = document.getElementById('addNewSkillBtn');
 const addEmploymentBtn = document.getElementById('addEmploymentBtn');
@@ -32,7 +38,7 @@ function buildResume2() {
 	buildStartHTML(flyWindow);
 	buildNameSection(flyWindow);
 	buildContactSection(flyWindow);
-	
+
 	buildHTMLEnd(flyWindow);
 }
 
@@ -57,7 +63,6 @@ function buildContactSection(flyWindow) {
 	userZip = document.getElementById('zipCode').value;
 	userPhone = document.getElementById('phoneNumber').value;
 	userEmail = document.getElementById('email').value;
-
 	userSocialMedia = document.getElementById('socialMedia').value;
 	userPortfolio = document.getElementById('portfolio').value;
 
@@ -159,7 +164,10 @@ function createEmploymentInput() {
 
 	const startDateLabel = document.createElement('label');
 	const startDateLabelText = document.createTextNode('Start Date ');
+	startDatePicker.id = `userStartDate_${employmentDetails${}}`;
 	startDateLabel.appendChild(startDateLabelText);
+
+	
 
 	const endDateLabel = document.createElement('label');
 	const endDateLabelText = document.createTextNode('End Date ');
