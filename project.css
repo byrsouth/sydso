@@ -39,26 +39,18 @@ div#techSkills {
 	color: darkslategray;
 }
 
-div.empHistory {
+.empDetails {
 	border: 10px black;
 	width: 250px;
 	text-align: left;
-	margin-bottom: 20px;
+	margin: 40px;
 }
 
-/* div#empHistory2 {
-	border: 10px black;
-	width: 250px;
-	text-align: left;
-	margin-bottom: 20px;
+.infoLabel {
+	font-style: italic;
+	font-size: small;
 }
 
-div#empHistory3 {
-	border: 10px black;
-	width: 250px;
-	text-align: left;
-	margin-bottom: 20px;
-} */
 
 .infoDisplay {
     max-width: 650px;

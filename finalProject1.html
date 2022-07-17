@@ -71,32 +71,37 @@
                 </tr>
            
         </table>
-        </form>
+       
         </fieldset>
     </div>
     <p></p>
     <div class="infoDisplay">
         <fieldset><legend>Technical Skill</legend>
-        <form id="codingSkillsForm">
-            <button type="button" id="addNewSkillBtn">Add New Skill</button><br>
+        <div id="codingSkills">
+            <button type="button" id="addNewSkillBtn">Add New Skill</button><p/>
             <!-- <input type="text" placeholder="Enter skill (+)"> <button type="button">+</button> -->            
-        </form>
+        </div>
+        <p/>
         <div><button type="input" id="saveBtn">Save</button>
         <button type="input" id="clearBtn">Clear</button></div>
     </fieldset>
     </div>
     <p></p>
     
-        <div>
+        <div class="infoDisplay">
            <fieldset><legend>Employment History</legend>
-             <label>Enter your start and end date of your last three employment experiences:</label><br>
+             <label class="infoLabel">Enter your start and end date of your last three employment experiences:</label><br>
              <div id="empHistory"></div>
             <!-- <input type="date" id="startDate1">
             <input type="date" id="endDate1"><br>
             <textarea id="empDetails" rows="10" cols="60" placeholder="Please describe your work experiences."></textarea> -->
-           </fieldset>
-        </div>
-   
+            <div>
+                <button type="button" id="addEmploymentBtn">Add Employment</button>
+                <button type="button">Clear</button>
+            </div>
+        </fieldset>
+    </div>
+    </form>
     <script src="projectJS1.js"></script>
    </body>
     
