@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>WEB-115 Final Project</title>
+    <link rel="stylesheet" href="project.css">
     <style>
         .header {
             padding: 15px;
@@ -22,61 +23,85 @@
         <h3>WEB-115 Section .0003</h3>
         <h3>Build Your Resume</h3>
     </div>
-    <form>
-        <p>
-            <label>Enter your full name:</label><br>
-            <input type="text" id="fullName">
-        </p>
-        <p>
-            <label>Enter your city:</label><br>
-            <input type="text" id="city">
-        </p>
-        <p>
-            <label>Enter your state:</label><br>
-            <input type="text" id="state">
-        </p>
-        <p>
-            <label>Enter your zip code:</label><br>
-            <input type="text" id="zipCode">
-        </p>
-        <p>
-            <label>Please Enter your phone number:</label><br>
-            <input type="text" id="phoneNumber">
-        </p>
-        <p>
-            <label>Enter your Email:</label><br>
-            <input type="text" id="email">
-        </p>
-        <p>
-            <label>Enter your social media links:</label><br>
-            <input type="text" id="socialMedia">
-        </p>
-        <p>
-            <label>Enter your portfolio link:</label><br>
-            <input type="text" id="portfolio">
-        </p>
 
-        <p>
-            <label>Enter your coding skills:</label><br>
-            <input type="text" id="codingSkills">
-        </p>
-        <p>
-            <label>Enter your work ethic:</label><br>
-            <input type="text" id="workEthic">
-        </p>
-        <p>
-            <label>Enter your writing skills:</label><br>
-            <input type="text" id="writingSkills">
-        </p>
+    <div class="infoDisplay">
+        <fieldset><legend>Personal Info</legend>
+        <form id="personalInfoForm">
+            
+    <table>
+                <tr>
+                    <td>
+                        <label>Name</label><br>
+                        <input type="text" id="fullName" placeholder="Enter you full name.">
 
-        <p>
-            <label>Enter your technical skills:</label><br>
-            <input type="text" id="techSkills">
-        </p>
-        <p>
-            <label>Enter your technical skills:</label><br>
-            <input type="text" id="techSkills2">
-        </p>
+                    </td>
+                </tr>
+                <tr>               
+                    <td>
+                        <label>City</label><br>
+                        <input type="text" id="city" placeholder="Enter your city.">
+
+                    </td>
+                    <td>
+                        <label>State</label><br>
+                        <input type="text" id="state" placeholder="Enter your state.">
+                    </td>
+                    <td>
+                        <label>Zip Code:</label><br>
+                        <input type="text" id="zipCode" placeholder="Enter your zip code.">
+                    </td>
+                </tr>
+                    <td>
+                        <label>Phone number</label><br>
+                        <input type="text" id="phoneNumber" placeholder="Enter your phone number.">
+
+                    </td>
+                    <td>
+                        <label>Email</label><br>
+                        <input type="text" id="email" placeholder="Enter your email.">
+                    </td>
+                    <td>
+                        <label>Social media links</label><br>
+                        <input type="text" id="socialMedia" placeholder="Enter your social media links.">
+                    </td>
+                    <td>
+                        <label>Portfolio link:</label><br>
+                        <input type="text" id="portfolio" placeholder="Enter your portfolio link.">
+                    </td>
+                </tr>
+           
+        </table>
+        </form>
+        </fieldset>
+    </div>
+    <p></p>
+    <div class="infoDisplay">
+        <fieldset><legend>Technical Skill</legend>
+        <form id="codingSkillsForm">
+            <button type="button" id="addNewSkillBtn">Add New Skill</button><br>
+            <!-- <input type="text" placeholder="Enter skill (+)"> <button type="button">+</button> -->            
+        </form>
+        <div><button type="input" id="saveBtn">Save</button>
+        <button type="input" id="clearBtn">Clear</button></div>
+    </fieldset>
+    </div>
+    <p></p>
+    
+        <div>
+           <fieldset><legend>Employment History</legend>
+             <label>Enter your start and end date of your last three employment experiences:</label><br>
+             <div id="empHistory"></div>
+            <!-- <input type="date" id="startDate1">
+            <input type="date" id="endDate1"><br>
+            <textarea id="empDetails" rows="10" cols="60" placeholder="Please describe your work experiences."></textarea> -->
+           </fieldset>
+        </div>
+   
+    <script src="projectJS1.js"></script>
+   </body>
+    
+<!--      
+
 
         <p>
             <label>Enter your educational background:</label><br>
@@ -109,8 +134,8 @@
         <p>
             <input type="button" id="createResume" value="Create Resume">
         </p>
-    </form>
-    <script src="projectJS1.js"></script>
-</body>
+    </form> -->
+    
+<!-- </body> -->
 
 </html>

@@ -15,11 +15,16 @@ Person.prototype.setFirstName = function(fname) {
 }
 
 Person.prototype.getFirstName = function () {
+   
     return this.firstName
 }
 
 Person.prototype.getLastName = function () {
     return this.lastName;
+}
+
+Person.prototype.setLastName = function (lname) {
+     this.lastName = lname;
 }
 
 Person.prototype.getCourse = function () {
@@ -38,5 +43,8 @@ Person.prototype.getRole = function () {
 Person.prototype.getFullName = function () {
     return this.Fisrt + ' ' + this.LastName;
 }
+
+
+
 
 

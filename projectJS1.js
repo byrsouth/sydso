@@ -1,4 +1,11 @@
-document.getElementById("createResume").addEventListener("click", buildResume)
+//document.getElementById("createResume").addEventListener("click", buildResume);
+const codingSkills = [];
+const skillForm = document.getElementById('codingSkillsForm');
+const addNewSkillBtn = document.getElementById('addNewSkillBtn');
+
+addNewSkillBtn.addEventListener('click', () => {
+    createSkillInput();
+});
 
 function buildResume() {
     userName = document.getElementById("fullName").value;
@@ -9,22 +16,28 @@ function buildResume() {
     userEmail = document.getElementById("email").value;
     userSocialMedia = document.getElementById("socialMedia").value;
     userPortfolio = document.getElementById("portfolio").value;
-    userCdSkills = document.getElementById("codingSkills").value;
-    userWrkEthic = document.getElementById("workEthic").value;
-    userWritingSkills = document.getElementById("writingSkills").values;
-    userTechSkills = document.getElementById("techSkills").value;
-    userTechSkills2 = document.getElementById("techSkills2").value;
-    userEDU = document.getElementById("eduBkgrd").value;
-    userStartDate1 = document.getElementById("startDate1").value;
-    userEmpDetails1 = document.getElementById("empDetails1").value;
-    userEndDate1 = document.getElementById("endDate1").value;
-    userStartDate2 = document.getElementById("startDate2").value;
-    userEndDate2 = document.getElementById("endDate2").value;
-    userEmpDetails2 = document.getElementById("empDetails2").value;
-    userStartDate3 = document.getElementById("startDate3").value;
-    userEndDate3 = document.getElementById("endDate3").value;
-    userEmpDetails3 = document.getElementById("empDetails3").value;
-    userRef = document.getElementById("busRef").value;
+
+
+    // userCdSkills = document.getElementById("codingSkills").value;
+    // userWrkEthic = document.getElementById("workEthic").value;
+    // userWritingSkills = document.getElementById("writingSkills").values;
+    // userTechSkills = document.getElementById("techSkills").value;
+    // userTechSkills2 = document.getElementById("techSkills2").value;
+    // userEDU = document.getElementById("eduBkgrd").value;
+    // userStartDate1 = document.getElementById("startDate1").value;
+    // userEmpDetails1 = document.getElementById("empDetails1").value;
+    // userEndDate1 = document.getElementById("endDate1").value;
+    // userStartDate2 = document.getElementById("startDate2").value;
+    // userEndDate2 = document.getElementById("endDate2").value;
+    // userEmpDetails2 = document.getElementById("empDetails2").value;
+    // userStartDate3 = document.getElementById("startDate3").value;
+    // userEndDate3 = document.getElementById("endDate3").value;
+    // userEmpDetails3 = document.getElementById("empDetails3").value;
+    // userRef = document.getElementById("busRef").value;
+
+
+    
+   
 
     myText = ("<html>\n<head>\n<title>Welcome</title>\n<link rel='stylesheet' href='project.css'>\n</head>\n<body>\n<div id='guestName'>");
     myText += (userName + " ")
@@ -81,3 +94,35 @@ function buildResume() {
     flyWindow = window.open('about:blank', 'myPop', 'width=800,height=400,left=400,top=400');
     flyWindow.document.write(myText);
 }
+
+function createSkillInput() {
+	const span = document.createElement('span');
+	const input = document.createElement('input');
+    input.id = `skill_${codingSkills.length}`
+    input.placeholder='Enter skill';
+	span.appendChild(input);   
+	skillForm.appendChild(span);
+}
+
+function createEmploymentInput() {
+   const span = document.createElement('span');
+   const startDatePicker =  document.createElement('input')
+   const endDatePicker = document.createElement('input')
+   endDatePicker.type = 'date';
+   endDatePicker.id = 'endDate';
+
+   startDatePicker.type = 'date';
+   startDatePicker.id = 'startDate';
+   
+   span.appendChild(startDatePicker);
+   span.appendChild(endDatePicker);
+   document.getElementById('empHistory').appendChild(span);
+            //     <input type="date" id="startDate1">
+            // <input type="date" id="endDate1"><br>
+            // <textarea id="empDetails" rows="10" cols="60" placeholder="Please describe your work experiences."></textarea>
+}
+
+createSkillInput();
+createEmploymentInput();    
+
+ 
