@@ -1,4 +1,4 @@
-//document.getElementById("createResume").addEventListener("click", buildResume);
+document.getElementById('createResume').addEventListener('click', buildResume2);
 const codingSkills = [];
 const employmentDetails = [];
 const skillForm = document.getElementById('codingSkills');
@@ -7,10 +7,12 @@ const addEmploymentBtn = document.getElementById('addEmploymentBtn');
 
 addNewSkillBtn.addEventListener('click', () => {
 	const input = document.getElementById(`skill_${codingSkills.length}`);
-	if(input.value === '' ){
-		alert("Must fill in skill");
-	}else{
-		const skill = document.getElementById(`skill_${codingSkills.length}`).value;
+	if (input.value === '') {
+		alert('Must fill in skill');
+	} else {
+		const skill = document.getElementById(
+			`skill_${codingSkills.length}`
+		).value;
 		codingSkills.push(skill);
 		createSkillInput();
 		console.log(codingSkills);
@@ -18,20 +20,60 @@ addNewSkillBtn.addEventListener('click', () => {
 });
 
 addEmploymentBtn.addEventListener('click', () => {
-
 	createEmploymentInput();
 });
 
-function buildResume() {
+function buildResume2() {
+	flyWindow = window.open(
+		'about:blank',
+		'myPop',
+		'width=1600,height=1000,left=400,top=400'
+	);
+	buildStartHTML(flyWindow);
+	buildNameSection(flyWindow);
+	buildContactSection(flyWindow);
+	
+	buildHTMLEnd(flyWindow);
+}
+
+function buildStartHTML(flyWindow) {
+	flyWindow.document.write(
+		"<html>\n<head>\n<title>Web 115 Final Project</title>\n<link rel='stylesheet' href='project.css'>\n</head>\n<body>\n"
+	);
+}
+
+function buildHTMLEnd() {
+	flyWindow.document.write('</div>\n</body>\n</html>');
+}
+
+function buildNameSection(flyWindow) {
 	userName = document.getElementById('fullName').value;
+	flyWindow.document.write(`<div id='guestName'>${userName}</div>`);
+}
+
+function buildContactSection(flyWindow) {
 	userCity = document.getElementById('city').value;
 	userState = document.getElementById('state').value;
 	userZip = document.getElementById('zipCode').value;
 	userPhone = document.getElementById('phoneNumber').value;
 	userEmail = document.getElementById('email').value;
+
 	userSocialMedia = document.getElementById('socialMedia').value;
 	userPortfolio = document.getElementById('portfolio').value;
 
+	const myText = `<div id='contact'>${userCity},${userState} ${userZip} &#9830; ${userPhone} &#9830; ${userEmail}
+	                ${userSocialMedia} &#9830; ${userPortfolio}</div>`;
+	flyWindow.document.write(myText);
+}
+
+function buildSkillsSection(flyWindow) {
+	const myText = "<div id='skills'>";
+	myText += '<h1>Skills</h1>';
+	myText += '<h3>Coding Skills</h3>';
+	flyWindow.document.write(myText);
+}
+
+function buildResume() {
 	// userCdSkills = document.getElementById("codingSkills").value;
 	// userWrkEthic = document.getElementById("workEthic").value;
 	// userWritingSkills = document.getElementById("writingSkills").values;
@@ -51,18 +93,7 @@ function buildResume() {
 
 	myText =
 		"<html>\n<head>\n<title>Welcome</title>\n<link rel='stylesheet' href='project.css'>\n</head>\n<body>\n<div id='guestName'>";
-	myText += userName + ' ';
-	myText += '</div>';
 
-	myText += "<div id='contact'>";
-	myText += userCity + ' ' + userState + ' ' + userZip + ' ';
-	myText += userPhone + ' ' + userEmail + ' ';
-	myText += userSocialMedia + ' ' + userPortfolio + ' ';
-	myText += '</div>';
-
-	myText += "<div id='skills'>";
-	myText += '<h1>Skills</h1>';
-	myText += '<h3>Coding Skills</h3>';
 	myText += userCdSkills + ' ';
 	myText += '<h3>Work Ethic</h3>';
 	myText += userWrkEthic + ' ';
@@ -126,13 +157,24 @@ function createEmploymentInput() {
 	const empDetails = document.createElement('textarea');
 	const div = document.createElement('div');
 
+	const startDateLabel = document.createElement('label');
+	const startDateLabelText = document.createTextNode('Start Date ');
+	startDateLabel.appendChild(startDateLabelText);
+
+	const endDateLabel = document.createElement('label');
+	const endDateLabelText = document.createTextNode('End Date ');
+	endDateLabel.appendChild(endDateLabelText);
+
 	endDatePicker.type = 'date';
 	endDatePicker.id = 'endDate';
 
 	startDatePicker.type = 'date';
 	startDatePicker.id = 'startDate';
 
+	span.appendChild(startDateLabel);
 	span.appendChild(startDatePicker);
+
+	span.appendChild(endDateLabel);
 	span.appendChild(endDatePicker);
 
 	empDetails.id = `empDetail_${employmentDetails.length}`;
@@ -145,7 +187,6 @@ function createEmploymentInput() {
 
 	document.getElementById('empHistory').appendChild(span);
 	document.getElementById('empHistory').appendChild(div);
-
 }
 
 createSkillInput();

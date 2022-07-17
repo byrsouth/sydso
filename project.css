@@ -56,3 +56,7 @@ div#techSkills {
     max-width: 650px;
     max-height: 200px;
 }
+
+label {
+	font-size: small;
+}
