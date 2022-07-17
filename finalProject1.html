@@ -25,32 +25,33 @@
     </div>
 
     <div class="infoDisplay">
-        <fieldset><legend>Personal Info</legend>
-        <form id="personalInfoForm">
-            
-    <table>
-                <tr>
-                    <td>
-                        <label>Name</label><br>
-                        <input type="text" id="fullName" placeholder="Enter you full name.">
+        <fieldset>
+            <legend>Personal Info</legend>
+            <form id="personalInfoForm">
 
-                    </td>
-                </tr>
-                <tr>               
-                    <td>
-                        <label>City</label><br>
-                        <input type="text" id="city" placeholder="Enter your city.">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Name</label><br>
+                            <input type="text" id="fullName" placeholder="Enter you full name.">
 
-                    </td>
-                    <td>
-                        <label>State</label><br>
-                        <input type="text" id="state" placeholder="Enter your state.">
-                    </td>
-                    <td>
-                        <label>Zip Code:</label><br>
-                        <input type="text" id="zipCode" placeholder="Enter your zip code.">
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>City</label><br>
+                            <input type="text" id="city" placeholder="Enter your city.">
+
+                        </td>
+                        <td>
+                            <label>State</label><br>
+                            <input type="text" id="state" placeholder="Enter your state.">
+                        </td>
+                        <td>
+                            <label>Zip Code:</label><br>
+                            <input type="text" id="zipCode" placeholder="Enter your zip code.">
+                        </td>
+                    </tr>
                     <td>
                         <label>Phone number</label><br>
                         <input type="text" id="phoneNumber" placeholder="Enter your phone number.">
@@ -68,43 +69,72 @@
                         <label>Portfolio link:</label><br>
                         <input type="text" id="portfolio" placeholder="Enter your portfolio link.">
                     </td>
-                </tr>
-           
-        </table>
-       
+                    </tr>
+
+                </table>
+
         </fieldset>
     </div>
     <p></p>
     <div class="infoDisplay">
-        <fieldset><legend>Technical Skill</legend>
-        <div id="codingSkills">
-            <button type="button" id="addNewSkillBtn">Add New Skill</button><p/>
-            <!-- <input type="text" placeholder="Enter skill (+)"> <button type="button">+</button> -->            
-        </div>
-        <p/>
-        <div><button type="input" id="saveBtn">Save</button>
-        <button type="input" id="clearBtn">Clear</button></div>
-    </fieldset>
+        <fieldset>
+            <legend>Technical Skill</legend>
+            <div id="codingSkills">
+                <button type="button" id="addNewSkillBtn">Add New Skill</button>
+                <p />
+                <!-- <input type="text" placeholder="Enter skill (+)"> <button type="button">+</button> -->
+            </div>
+            <p />
+            <div><button type="input" id="saveBtn">Save</button>
+                <button type="input" id="clearBtn">Clear</button>
+            </div>
+        </fieldset>
     </div>
     <p></p>
-    
-        <div class="infoDisplay">
-           <fieldset><legend>Employment History</legend>
-             <label class="infoLabel">Enter your start and end date of your last three employment experiences:</label><br>
-             <div id="empHistory"></div>
+
+    <div class="infoDisplay">
+        <fieldset>
+            <legend>Employment History</legend>
+            <div id="edu"></div>
+            <label class="infoLabel">Enter your start and end date of your last three employment
+                experiences:</label><br>
+    </div>
+    <div>
+        <button type="button" id="addEmploymentBtn">Add Employment</button>
+        <button type="button">Clear</button>
+    </div>
+    </fieldset>
+    <p>
+    <div class="infoDisplay">
+        <fieldset>><legend>Education</legend>
+            <label class="infoLabel">Enter your educational backgroud:</label><br>
+            <textarea></textarea>
+            <div id="eduHistory"></div>
             <div>
-                <button type="button" id="addEmploymentBtn">Add Employment</button>
+                <button type="button" id="addEduBtn">Add Education</button>
                 <button type="button">Clear</button>
             </div>
         </fieldset>
-        <p>
-            <input type="button" id="createResume" value="Create Resume">
-        </p>
     </div>
-</form>
+    </p>
+
+    <p>
+    <div class="infoDisplay">
+        <fieldset>
+            <legend>Business References</legend>
+            <label class="infoLabel">Enter your business reference:</label><br>
+            <textarea></textarea>
+        </fieldset>
+    </div>
+    </p>
+    <p>
+        <input type="button" id="createResume" value="Create Resume">
+    </p>
+    </div>
+    </form>
     <script src="projectJS1.js"></script>
-   </body>
-    
+</body>
+
 <!--      
 
 
@@ -137,7 +167,7 @@
             <textarea id="busRef" rows="10" cols="60"></textarea>
         </p>
     </form> -->
-    
+
 <!-- </body> -->
 
 </html>
