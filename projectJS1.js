@@ -15,6 +15,7 @@ addNewSkillBtn.addEventListener('click', () => {
 		).value;
 		codingSkills.push(skill);
 		createSkillInput();
+		createEducationInput();
 		console.log(codingSkills);
 	}
 });
@@ -139,6 +140,46 @@ function buildResume() {
 		'width=800,height=400,left=400,top=400'
 	);
 	flyWindow.document.write(myText);
+}
+
+function createEducationInput() {
+	const span = document.createElement('span');
+	const startDatePicker = document.createElement('input');
+	const endDatePicker = document.createElement('input');
+	const eduDetails = document.createElement('textarea');
+	const div = document.createElement('div');
+
+	const startDateLabel = document.createElement('label');
+	const startDateLabelText = document.createTextNode('Start Date ');
+	startDateLabel.appendChild(startDateLabelText);
+
+	const endDateLabel = document.createElement('label');
+	const endDateLabelText = document.createTextNode('End Date ');
+	endDateLabel.appendChild(endDateLabelText);
+
+	endDatePicker.type = 'date';
+	endDatePicker.id = 'endDate';
+
+	startDatePicker.type = 'date';
+	startDatePicker.id = 'startDate';
+
+	span.appendChild(startDateLabel);
+	span.appendChild(startDatePicker);
+
+	span.appendChild(endDateLabel);
+	span.appendChild(endDatePicker);
+
+	eduDetails.id = 'eduDetails';
+
+	eduDetails.class = 'empDetails';
+	eduDetails.rows = 10;
+	eduDetails.cols = 60;
+	eduDetails.placeholder = 'Please describe your education.';
+
+	div.appendChild(eduDetails);
+
+	document.getElementById('eduHistory').appendChild(span);
+	document.getElementById('eduHistory').appendChild(div);
 }
 
 function createSkillInput() {
