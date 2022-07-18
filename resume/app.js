@@ -136,7 +136,7 @@ function buildResume() {
   // userRef = document.getElementById("busRef").value;
 
   myText =
-    "<html>\n<head>\n<title>Welcome</title>\n<link rel='stylesheet' href='project.css'>\n</head>\n<body>\n<div id='guestName'>";
+    "<html>\n<head>\n<title>Welcome</title>\n<link rel='stylesheet' href='resume.css'>\n</head>\n<body>\n<div id='guestName'>";
 
   myText += userCdSkills + " ";
   myText += "<h3>Work Ethic</h3>";
