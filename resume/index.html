@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>WEB-115 Final Project</title>
+    <link rel="stylesheet" href="resume.css">
+    <style>
+        .header {
+            padding: 15px;
+            text-align: left;
+            background-color: #eaac9d;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Sydney Southerland</h1>
+        <h3>WEB-115 Section .0003</h3>
+        <h3>Build Your Resume</h3>
+    </div>
+
+    <form id="personalInfoForm">
+        <div class="infoDisplay">
+            <fieldset><legend>Personal Info</legend>            
+                <table>
+                    <tr>
+                        <td>
+                            <label>Name</label><br>
+                            <input type="text" id="fullName" placeholder="Enter you full name.">
+                        </td>
+                    </tr>
+                    <tr>               
+                        <td>
+                            <label>City</label><br>
+                            <input type="text" id="city" placeholder="Enter your city.">
+                        </td>
+                        <td>
+                            <label>State</label><br>
+                            <input type="text" id="state" placeholder="Enter your state.">
+                        </td>
+                        <td>
+                            <label>Zip Code:</label><br>
+                            <input type="text" id="zipCode" placeholder="Enter your zip code.">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Phone number</label><br>
+                            <input type="text" id="phoneNumber" placeholder="Enter your phone number.">
+                        </td>
+                        <td>
+                            <label>Email</label><br>
+                            <input type="text" id="email" placeholder="Enter your email.">
+                        </td>
+                        <td>
+                            <label>Social media links</label><br>
+                            <input type="text" id="socialMedia" placeholder="Enter your social media links.">
+                        </td>
+                        <td>
+                            <label>Portfolio link:</label><br>
+                            <input type="text" id="portfolio" placeholder="Enter your portfolio link.">
+                        </td>
+                    </tr>           
+                </table>       
+            </fieldset>
+        </div>
+  
+        <div class="infoDisplay">
+            <fieldset>
+                <legend>Technical Skill</legend>
+                <div id="codingSkills">
+                    <button type="button" id="addNewSkillBtn">Add New Skill</button><p/>
+                </div>
+                <p/>
+                <div>
+                    <button type="input" id="saveBtn">Save</button>
+                    <button type="input" id="clearBtn">Clear</button>
+                </div>
+             </fieldset>
+        </div>   
+    
+         <div class="infoDisplay">
+            <fieldset><legend>Employment History</legend>
+                <label class="infoLabel">Enter your start and end date of your last three employment experiences:</label><br>
+                <div id="empHistory"></div>
+                <div>
+                    <button type="button" id="addEmploymentBtn">Add Employment</button>
+                    <button type="button">Clear</button>
+                </div>
+            </fieldset> 
+         
+        <div class="infoDisplay">
+            <fieldset>
+                <legend>Education</legend>
+                <label class="infoLabel">Enter your educational backgroud:</label><br>               
+                <div id="eduHistory"></div>
+                <div>
+                    <button type="button" id="addEduBtn">Add Education</button>
+                    <button type="button">Clear</button>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="infoDisplay">
+            <fieldset>
+                <legend>Business References</legend>
+                <label class="infoLabel">Enter your business reference:</label><br>
+                <div id="bizRef"></div>
+                <textarea row="10" cols="60"></textarea>
+            </fieldset>
+        </div>         
+        <div>
+            <input type="button" id="createResume" value="Create Resume">    
+        </div>
+    </form>      
+</body>
+<script src="app.js"></script>
+</html>
+      
