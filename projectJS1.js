@@ -21,10 +21,26 @@ addNewSkillBtn.addEventListener("click", () => {
 });
 
 addEmploymentBtn.addEventListener("click", () => {
-  employmentDetail = document.getElementById(`empDetail_${employmentDetails.length}`);
-  
-  if (employmentDetail.value) {
+  const detailId = `empDetail_${employmentDetails.length}`;
+  const details = document.getElementById(detailId).value;
+  const startDate = document.getElementById(`startDate_${detailId}`).value;
+  const endDate = document.getElementById(`endDate_${detailId}`).value;
+
+  if (details) {
+    employmentDetail = {
+      id: "",
+      startDate: "",
+      endDate: "",
+      details: "",
+    };
+
+    employmentDetail.id = detailId;
+    employmentDetail.startDate = startDate;
+    employmentDetail.endDate = endDate;
+    employmentDetail.details = details;
+
     employmentDetails.push(employmentDetail);
+    console.log(employmentDetail);
     createEmploymentInput();
   } else {
     alert("Must fill in employment history");
@@ -78,10 +94,10 @@ function historyComponent(id, placeholder) {
   endDateLabel.appendChild(endDateLabelText);
 
   endDatePicker.type = "date";
-  endDatePicker.id = "endDate";
+  endDatePicker.id = `endDate_${id}`;
 
   startDatePicker.type = "date";
-  startDatePicker.id = "startDate";
+  startDatePicker.id = `startDate_${id}`;
 
   span.appendChild(startDateLabel);
   span.appendChild(startDatePicker);
@@ -90,7 +106,7 @@ function historyComponent(id, placeholder) {
   span.appendChild(endDatePicker);
 
   historyTextArea.id = id;
-  historyTextArea.class = "empDetials";
+  historyTextArea.class = "historyDetials";
   historyTextArea.rows = 10;
   historyTextArea.cols = 60;
   historyTextArea.placeholder = placeholder;
