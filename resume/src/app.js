@@ -1,11 +1,11 @@
-import  {historyComponent, skillComponent} from './resumeComponents.js';
+import  {historyComponent, skillComponent, businessReferenceComponent} from './resumeComponents.js';
 import  {HistoryDetail} from './types.js';
 
 document.getElementById("createResume").addEventListener("click", buildResume2);
 const codingSkills = [];
 const employmentDetails = [];
-const educationDetail = null;
-const skillForm = document.getElementById("codingSkills");
+const educationDetails = [];
+const businessReferences = [];
 
 const addNewSkillBtn = document.getElementById("addNewSkillBtn");
 const addEmploymentBtn = document.getElementById("addEmploymentBtn");
@@ -31,7 +31,7 @@ addEmploymentBtn.addEventListener("click", () => {
 
   if (details) {
  
-    employmentDetail = HistoryDetail;        
+    let employmentDetail = new HistoryDetail();        
     employmentDetail.id = detailId;
     employmentDetail.startDate = startDate;
     employmentDetail.endDate = endDate;
@@ -46,10 +46,31 @@ addEmploymentBtn.addEventListener("click", () => {
 });
 
 addEducationBtn.addEventListener("click", () => {
-  educationDetail = document.getElementById("educationDetail");
+  
+  const detailId = `eduDetail_${educationDetails.length}`;
+  const details = document.getElementById(detailId).value;
+  const startDate = document.getElementById(`startDate_${detailId}`).value;
+  const endDate = document.getElementById(`endDate_${detailId}`).value;
+
+  if (details) {
+ 
+    let educationDetail = new HistoryDetail();        
+    educationDetail.id = detailId;
+    educationDetail.startDate = startDate;
+    educationDetail.endDate = endDate;
+    educationDetail.details = details;
+
+    educationDetails.push(educationDetail);
+    console.log(educationDetail);
+    createEducationInput();
+  } else {
+    alert("Must fill in education history");
+  }
+
 });
 
 function createSkillInput() {  
+  const skillForm = document.getElementById("codingSkills");
   const id = `skill_${codingSkills.length}`;
   const placeholder = 'Enter skill';
   const skillInput = skillComponent(id, placeholder)
@@ -66,12 +87,19 @@ function createEmploymentInput() {
 }
 
 function createEducationInput() {
-  const eduDetailId = "educationDetail";
+  const eduDetailId =  `eduDetail_${educationDetails.length}`;
   const educationHistoryComponent = historyComponent(
     eduDetailId,
     "Please describe your education."
   );
   document.getElementById("eduHistory").appendChild(educationHistoryComponent);
+}
+
+function createBusinessReferenceInput(){
+  const bizRefId = `"bizRef_${businessReferences.length}`;
+  const bizRefComponent  = businessReferenceComponent(bizRefId);
+  document.getElementById('bizRef').appendChild(bizRefComponent);
+
 }
 
 function buildResume() {
@@ -195,3 +223,4 @@ function buildSkillsSection(flyWindow) {
 createSkillInput();
 createEmploymentInput();
 createEducationInput();
+createBusinessReferenceInput();

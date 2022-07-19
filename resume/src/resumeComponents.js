@@ -45,3 +45,22 @@ export function historyComponent(id, placeholder) {
 
 	return div;
 }
+
+export function businessReferenceComponent(id){
+	const div = document.createElement('div');
+	const nameInput = document.createElement('input');
+	const contactInput = document.createElement('input');
+	
+	nameInput.id = `name_${id}`;
+	nameInput.placeholder = 'Reference Name'
+	nameInput.style.margin = "10px";
+
+
+	contactInput.id = `contact_${id}`
+	contactInput.placeholder = ' Phone Number'
+
+	div.appendChild(nameInput);
+	div.appendChild(contactInput);
+
+	return div;
+}
