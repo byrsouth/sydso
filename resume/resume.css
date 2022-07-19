@@ -1,0 +1,61 @@
+body {
+	/* background-color: cornsilk; */
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h1 {
+	text-decoration: underline;
+	color: darkcyan;
+}
+
+div#guestName {
+	margin-bottom: 5px;
+	font-size: xx-large;
+	text-align: left;
+	color: darkslategray;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+div#contact {
+	margin-top: 5px;
+	margin-bottom: 15px;
+	text-align: left;
+	color: darkslategray;
+}
+
+div#skills {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	text-align: left;
+	color: darkslategray;
+}
+
+div#techSkills {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	text-align: left;
+	color: darkslategray;
+}
+
+.historyDetails {
+	border: 10px black;
+	width: 250px;
+	text-align: left;
+	margin: 40px;
+}
+
+.infoLabel {
+	font-style: italic;
+	font-size: small;
+}
+
+
+.infoDisplay {
+    max-width: 650px;
+}
+
+label {
+	font-size: small;
+}
