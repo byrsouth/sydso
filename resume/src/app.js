@@ -1,7 +1,7 @@
 import {
   HistoryComponent,
-  skillComponent,
-  businessReferenceComponent,
+  SkillComponent,
+  BusinessReferenceComponent,
 } from "./resumeComponents.js";
 import { HistoryDetail } from "./types.js";
 
@@ -75,12 +75,10 @@ addBizRefBtn.addEventListener("click", () => {
   createBusinessReferenceInput();
 });
 
-function createSkillInput() {
-  const skillForm = document.getElementById("codingSkills");
-  const id = `skill_${codingSkills.length}`;
-  const placeholder = "Enter skill";
-  const skillInput = skillComponent(id, placeholder);
-  skillForm.appendChild(skillInput);
+function createSkillInput() {  
+  const id = `skill_${codingSkills.length}`; 
+  const skillInput =  new SkillComponent(id,  "Enter skill");
+  document.getElementById("codingSkills").appendChild(skillInput.renderComponent());
 }
 
 function createEmploymentInput() {
@@ -97,8 +95,8 @@ function createEducationInput() {
 
 function createBusinessReferenceInput() {
   const bizRefId = `"bizRef_${businessReferences.length}`;
-  const bizRefComponent = businessReferenceComponent(bizRefId);
-  document.getElementById("bizRef").appendChild(bizRefComponent);
+  const bizRefComponent = new BusinessReferenceComponent(bizRefId);
+  document.getElementById("bizRef").appendChild(bizRefComponent.renderComponent());
 }
 
 function buildResume() {

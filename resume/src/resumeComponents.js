@@ -1,10 +1,17 @@
-export function skillComponent(id, placeholder) {
-	const skillsspan = document.createElement('span');
-	const input = document.createElement('input');
-	input.id = id;
-	input.placeholder = placeholder;
-	skillsspan.appendChild(input);
-	return skillsspan;
+export class SkillComponent{
+
+	skillsspan = document.createElement('span');
+
+	constructor(id, placeholder){
+		const input = document.createElement('input');
+		input.id = id;
+		input.placeholder = placeholder;
+		this.skillsspan.appendChild(input);
+	}
+
+	renderComponent(){
+		return this.skillsspan;	
+	}
 }
 
 export class HistoryComponent {
@@ -55,21 +62,27 @@ export class HistoryComponent {
 
 	
 
-export function businessReferenceComponent(id){
-	const div = document.createElement('div');
-	const nameInput = document.createElement('input');
-	const contactInput = document.createElement('input');
+export class BusinessReferenceComponent{
 	
-	nameInput.id = `name_${id}`;
-	nameInput.placeholder = 'Reference Name'
-	nameInput.style.margin = "10px";
+	div = document.createElement('div');
+	constructor(id){
+		const nameInput = document.createElement('input');
+		const contactInput = document.createElement('input');
+		
+		nameInput.id = `name_${id}`;
+		nameInput.placeholder = 'Reference Name'
+		nameInput.style.margin = "10px";
 
 
-	contactInput.id = `contact_${id}`
-	contactInput.placeholder = ' Phone Number'
+		contactInput.id = `contact_${id}`
+		contactInput.placeholder = ' Phone Number'
 
-	div.appendChild(nameInput);
-	div.appendChild(contactInput);
+		this.div.appendChild(nameInput);
+		this.div.appendChild(contactInput);
+	}
 
-	return div;
+	renderComponent() {
+		return this.div		
+	}
+	
 }
