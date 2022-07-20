@@ -1,9 +1,9 @@
-import {
-  HistoryComponent,
-  SkillComponent,
-  BusinessReferenceComponent,
-} from "./resumeComponents.js";
+import { HistoryComponent } from "./components/history.component.js";
+import { SkillComponent } from "./components/skilll.component.js";
+import { BusinessReferenceComponent } from "./components/BusinessReferenceComponent.js";
+
 import { HistoryDetail } from "./types.js";
+import { PersonlInfoComponent } from "./components/personalInfo.component.js";
 
 document.getElementById("createResume").addEventListener("click", buildResume2);
 const codingSkills = [];
@@ -97,6 +97,11 @@ function createBusinessReferenceInput() {
   const bizRefId = `"bizRef_${businessReferences.length}`;
   const bizRefComponent = new BusinessReferenceComponent(bizRefId);
   document.getElementById("bizRef").appendChild(bizRefComponent.renderComponent());
+}
+
+function createPersonalInfo(){
+  const personalInfoComponent  = new PersonlInfoComponent();
+  document.getElementById('personalInfo').appendChild(personalInfoComponent.renderComponent());
 }
 
 function buildResume() {
@@ -221,3 +226,4 @@ createSkillInput();
 createEmploymentInput();
 createEducationInput();
 createBusinessReferenceInput();
+createPersonalInfo();

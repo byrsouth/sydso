@@ -5,3 +5,8 @@ export class HistoryDetail {
 	details = '';
 };
 
+export class BusinessReference {
+	name= '';
+	type = '';
+	url = ''
+}

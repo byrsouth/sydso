@@ -59,3 +59,18 @@ div#techSkills {
 label {
 	font-size: small;
 }
+
+span.personalInfo {
+	display: block;
+	
+}
+
+span {
+	display: inline-block;
+	margin-top: 2px;
+	margin-left: 1px;
+}
+
+.main-div {
+	display: block;
+}
