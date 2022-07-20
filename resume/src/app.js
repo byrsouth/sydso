@@ -1,5 +1,5 @@
 import {
-  historyComponent,
+  HistoryComponent,
   skillComponent,
   businessReferenceComponent,
 } from "./resumeComponents.js";
@@ -85,20 +85,14 @@ function createSkillInput() {
 
 function createEmploymentInput() {
   const empDetailId = `empDetail_${employmentDetails.length}`;
-  const employmentHistoryComponent = historyComponent(
-    empDetailId,
-    "Please describe your work experiences."
-  );
-  document.getElementById("empHistory").appendChild(employmentHistoryComponent);
+  const employmentHistoryComponent = new HistoryComponent(empDetailId,"Please describe your work experiences." );
+  document.getElementById("empHistory").appendChild(employmentHistoryComponent.renderComponent()); 
 }
 
 function createEducationInput() {
   const eduDetailId = `eduDetail_${educationDetails.length}`;
-  const educationHistoryComponent = historyComponent(
-    eduDetailId,
-    "Please describe your education."
-  );
-  document.getElementById("eduHistory").appendChild(educationHistoryComponent);
+  const educationHistoryComponent = new HistoryComponent(eduDetailId,  "Please describe your education.");
+  document.getElementById("eduHistory").appendChild(educationHistoryComponent.renderComponent());
 }
 
 function createBusinessReferenceInput() {
