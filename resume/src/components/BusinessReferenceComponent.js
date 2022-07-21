@@ -6,6 +6,7 @@ export class BusinessReferenceComponent {
     const urlInput = document.createElement("input");
 
     nameInput.id = `name_${id}`;
+    console.log(nameInput.id)
     nameInput.placeholder = "Reference Name";
     nameInput.style.margin = "10px";
 

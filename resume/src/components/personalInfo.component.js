@@ -9,44 +9,25 @@ export class PersonlInfoComponent {
     const cityInput = this.createInputComponent('city', 'City', 'Enter City');
     const stateInput = this.createInputComponent('state', 'State', 'Enter State');
     const zipCodeInput = this.createInputComponent('zip', 'Zip Code', 'Enter Zip Code');
-    const phoneNumberInput = this.createInputComponent('zip', 'Zip Code', 'Enter Zip Code');
-    const emailInput = this.createInputComponent('zip', 'Zip Code', 'Enter Zip Code');
-    const socialMediaInput = this.createInputComponent('zip', 'Zip Code', 'Enter Zip Code');
+    const phoneNumberInput = this.createInputComponent('phoneNumber', 'Phone Number', 'Enter Phone Number');
+    const emailInput = this.createInputComponent('email', 'E-Mail', 'Enter e-mail');
+    const socialMediaInput = this.createInputComponent('socialMedia', 'Social Media', 'Enter Social Media');
 
-    const nameRow = document.createElement('span');    
-    const addressRow = document.createElement('span');
-    const contactRow = document.createElement('span');
+    const table = document.createElement('table');    
 
+    const nameRow = this.createTableRow(this.createTableData(nameInput));
+    const addressRow = this.createTableRow(this.createTableData(cityInput));
+    addressRow.appendChild(this.createTableData(stateInput))
+    addressRow.appendChild(this.createTableData(zipCodeInput));
     
-
-    nameRow.appendChild(nameInput);
-
-    addressRow.appendChild(cityInput);
-    addressRow.appendChild(stateInput);
-    addressRow.appendChild(zipCodeInput);
-
-    contactRow.appendChild(phoneNumberInput);
-    contactRow.appendChild(emailInput);
-    contactRow.appendChild(socialMediaInput);
-    
-
-    this.mainDiv.appendChild(
-      document.createElement('div').appendChild(nameRow)
-    );
-
-    this.mainDiv.appendChild(
-      document.createElement('div').appendChild(addressRow)
-    );
-
-    this.mainDiv.appendChild(
-      document.createElement('div').appendChild(contactRow)
-    );
-
-    // this.mainDiv.appendChild(
-    //   document.createElement('div').appendChild(zipCodeInput)
-    // );
-    
-    // this.mainDiv.appendChild(nameInput);
+    const contactRow = this.createTableRow(this.createTableData(phoneNumberInput));
+    contactRow.append(this.createTableData(emailInput));
+    contactRow.appendChild(this.createTableData(socialMediaInput));
+                                ;
+    table.appendChild(nameRow);
+    table.appendChild(addressRow);
+    table.appendChild(contactRow);
+    this.mainDiv.appendChild(table);   
   }
   
   renderComponent() {
@@ -64,8 +45,8 @@ export class PersonlInfoComponent {
     nameText.id = id;
     nameText.placeholder = placeholder;
 
-    labelspan.classList.add("block");
-    textspan.classList.add("block");
+    labelspan.classList.add('personalInfo');
+    textspan.classList.add('personalInfo');
 
     labelspan.appendChild(nameLabel);
     textspan.appendChild(nameText);
@@ -73,5 +54,17 @@ export class PersonlInfoComponent {
     div.appendChild(labelspan);
     div.appendChild(textspan);
     return div;
+  }
+
+  createTableData(element){
+   const td = document.createElement('td');
+   td.appendChild(element);
+   return td;
+  }
+
+  createTableRow(td){
+    const tr = document.createElement('tr');
+    tr.appendChild(td);
+    return tr;
   }
 }

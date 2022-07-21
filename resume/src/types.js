@@ -6,7 +6,8 @@ export class HistoryDetail {
 };
 
 export class BusinessReference {
+	constructor(){}
 	name= '';
-	type = '';
+	contact = '';
 	url = ''
 }

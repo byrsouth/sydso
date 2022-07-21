@@ -1,8 +1,7 @@
 import { HistoryComponent } from "./components/history.component.js";
 import { SkillComponent } from "./components/skilll.component.js";
-import { BusinessReferenceComponent } from "./components/BusinessReferenceComponent.js";
-
-import { HistoryDetail } from "./types.js";
+import { BusinessReferenceComponent } from "./components/businessReferenceComponent.js";
+import { BusinessReference, HistoryDetail } from "./types.js";
 import { PersonlInfoComponent } from "./components/personalInfo.component.js";
 
 document.getElementById("createResume").addEventListener("click", buildResume2);
@@ -18,7 +17,7 @@ const addBizRefBtn = document.getElementById("addBizRefBtn");
 
 addNewSkillBtn.addEventListener("click", () => {
   const input = document.getElementById(`skill_${codingSkills.length}`);
-  if (input.value === "") {
+  if (input.value !== "") {
     const skill = document.getElementById(`skill_${codingSkills.length}`).value;
     codingSkills.push(skill);
     createSkillInput();
@@ -71,9 +70,18 @@ addEducationBtn.addEventListener("click", () => {
 });
 
 addBizRefBtn.addEventListener("click", () => {
-  const bizRefId = `name_bizRef_${businessReferences.length}`;
+  const bizRefId = `bizRef_${businessReferences.length}`;  
+  const businessReference = new BusinessReference();
+  console.log(bizRefId)
+  businessReference.name = document.getElementById(`name_${bizRefId}`).value;
+  businessReference.url = document.getElementById(`contact_${bizRefId}`).value;
+  businessReference.contact = document.getElementById(`url_${bizRefId}`).value;
+  businessReferences.push(businessReference);
+  //console.log(businessReference);
+  console.log(businessReferences);
   createBusinessReferenceInput();
-});
+}
+);
 
 function createSkillInput() {  
   const id = `skill_${codingSkills.length}`; 
@@ -94,7 +102,7 @@ function createEducationInput() {
 }
 
 function createBusinessReferenceInput() {
-  const bizRefId = `"bizRef_${businessReferences.length}`;
+  const bizRefId = `bizRef_${businessReferences.length}`;
   const bizRefComponent = new BusinessReferenceComponent(bizRefId);
   document.getElementById("bizRef").appendChild(bizRefComponent.renderComponent());
 }
