@@ -71,6 +71,17 @@ span {
 	margin-left: 1px;
 }
 
+readOnlyLink{
+	text-decoration-line: underline;
+	text-decoration-style: dotted;
+    font-size: small;
+	color: gray;
+	margin-right: 3px;
+	margin-left: 3px;
+   
+	
+}
+
 .main-div {
 	display: block;
 }
