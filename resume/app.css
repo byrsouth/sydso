@@ -71,7 +71,7 @@ span {
 	margin-left: 1px;
 }
 
-readOnlyLink{
+.readOnlyLink{
 	text-decoration-line: underline;
 	text-decoration-style: dotted;
     font-size: small;

@@ -12,15 +12,35 @@ export class SkillComponent {
     return this.skillsspan;
   }
 
-  static renderRenderReadOnly(e) {
-    console.log("Parent = " + e.parentElement.id);
-    let parent = e.parentElement;
-
+  static renderReadOnly(e) {
+    const skillId = e.id;
+    const parent = e.parentElement;
     const element = document.createElement("span");
-    const text = document.createTextNode(e.value);
-    element.classList.add("readOnlyLink");  
+    const text = document.createTextNode(e.value);    
+    element.classList.add("readOnlyLink");
+    element.appendChild(text);
+
+     element.addEventListener("click", () => {
+		this.renderEditable(element);
+	 });
+
+   
+
+    const button = document.createElement("button");
 
     parent.replaceChild(element, e);
     //return element;
+  }
+
+  static renderEditable(e) {
+	//alert(e.innerText);
+    const parent = e.parentElement;
+    const element = document.createElement("input");
+    element.value = e.innerText;
+	element.addEventListener('blur', () => {
+		console.log('onblur')
+		this.renderReadOnly(element);
+	});
+    parent.replaceChild(element, e);
   }
 }

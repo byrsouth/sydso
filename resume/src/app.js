@@ -19,6 +19,7 @@ addNewSkillBtn.addEventListener("click", () => {
   const input = document.getElementById(`skill_${codingSkills.length}`);
   if (input.value !== "") {
     const skill = document.getElementById(`skill_${codingSkills.length}`).value;
+    SkillComponent.renderReadOnly(input);
     codingSkills.push(skill);
     createSkillInput();
     console.log(codingSkills);
