@@ -30,7 +30,7 @@ addNewSkillBtn.addEventListener("click", () => {
 
 addEmploymentBtn.addEventListener("click", () => {
   const detailId = `empDetail_${employmentDetails.length}`;
-  const details = document.getElementById(detailId).value;
+  const details = document.getElementById(detailId)
   const startDate = document.getElementById(`startDate_${detailId}`).value;
   const endDate = document.getElementById(`endDate_${detailId}`).value;
 
@@ -39,10 +39,11 @@ addEmploymentBtn.addEventListener("click", () => {
     employmentDetail.id = detailId;
     employmentDetail.startDate = startDate;
     employmentDetail.endDate = endDate;
-    employmentDetail.details = details;
+    employmentDetail.details = details.value;
 
     employmentDetails.push(employmentDetail);
     console.log(employmentDetail);
+    HistoryComponent.renderReadOnly(details);
     createEmploymentInput();
   } else {
     alert("Must fill in employment history");
@@ -71,46 +72,58 @@ addEducationBtn.addEventListener("click", () => {
 });
 
 addBizRefBtn.addEventListener("click", () => {
-  const bizRefId = `bizRef_${businessReferences.length}`;  
-  const businessReference = new BusinessReference();
-  console.log(bizRefId)
-  businessReference.name = document.getElementById(`name_${bizRefId}`).value;
-  businessReference.url = document.getElementById(`contact_${bizRefId}`).value;
-  businessReference.contact = document.getElementById(`url_${bizRefId}`).value;
+  const bizRefId = `bizRef_${businessReferences.length}`;
+  const businessReference =  BusinessReferenceComponent.getDetais(bizRefId);
+  console.log(businessReference);
+  
   businessReferences.push(businessReference);
-  //console.log(businessReference);
-  console.log(businessReferences);
+  BusinessReferenceComponent.renderReadOnly(document.getElementById(`name_${bizRefId}`));
   createBusinessReferenceInput();
-}
-);
+});
 
-function createSkillInput() {  
-  const id = `skill_${codingSkills.length}`; 
-  const skillInput =  new SkillComponent(id,  "Enter skill");
-  document.getElementById("codingSkills").appendChild(skillInput.renderComponent());
+function createSkillInput() {
+  const id = `skill_${codingSkills.length}`;
+  const skillInput = new SkillComponent(id, "Enter skill");
+  document
+    .getElementById("codingSkills")
+    .appendChild(skillInput.renderComponent());
 }
 
 function createEmploymentInput() {
   const empDetailId = `empDetail_${employmentDetails.length}`;
-  const employmentHistoryComponent = new HistoryComponent(empDetailId,"Please describe your work experiences." );
-  document.getElementById("empHistory").appendChild(employmentHistoryComponent.renderComponent()); 
+  const employmentHistoryComponent = new HistoryComponent(
+    empDetailId,
+    "Please describe your work experiences."
+  );
+  document
+    .getElementById("empHistory")
+    .appendChild(employmentHistoryComponent.renderComponent());
 }
 
 function createEducationInput() {
   const eduDetailId = `eduDetail_${educationDetails.length}`;
-  const educationHistoryComponent = new HistoryComponent(eduDetailId,  "Please describe your education.");
-  document.getElementById("eduHistory").appendChild(educationHistoryComponent.renderComponent());
+  const educationHistoryComponent = new HistoryComponent(
+    eduDetailId,
+    "Please describe your education."
+  );
+  document
+    .getElementById("eduHistory")
+    .appendChild(educationHistoryComponent.renderComponent());
 }
 
 function createBusinessReferenceInput() {
   const bizRefId = `bizRef_${businessReferences.length}`;
   const bizRefComponent = new BusinessReferenceComponent(bizRefId);
-  document.getElementById("bizRef").appendChild(bizRefComponent.renderComponent());
+  document
+    .getElementById("bizRef")
+    .appendChild(bizRefComponent.renderComponent());
 }
 
-function createPersonalInfo(){
-  const personalInfoComponent  = new PersonlInfoComponent();
-  document.getElementById('personalInfo').appendChild(personalInfoComponent.renderComponent());
+function createPersonalInfo() {
+  const personalInfoComponent = new PersonlInfoComponent();
+  document
+    .getElementById("personalInfo")
+    .appendChild(personalInfoComponent.renderComponent());
 }
 
 function buildResume() {

@@ -16,15 +16,13 @@ export class SkillComponent {
     const skillId = e.id;
     const parent = e.parentElement;
     const element = document.createElement("span");
-    const text = document.createTextNode(e.value);    
+    const text = document.createTextNode(e.value);
     element.classList.add("readOnlyLink");
     element.appendChild(text);
 
-     element.addEventListener("click", () => {
-		this.renderEditable(element);
-	 });
-
-   
+    element.addEventListener("click", () => {
+      this.renderEditable(element);
+    });
 
     const button = document.createElement("button");
 
@@ -33,14 +31,14 @@ export class SkillComponent {
   }
 
   static renderEditable(e) {
-	//alert(e.innerText);
+    //alert(e.innerText);
     const parent = e.parentElement;
     const element = document.createElement("input");
     element.value = e.innerText;
-	element.addEventListener('blur', () => {
-		console.log('onblur')
-		this.renderReadOnly(element);
-	});
+    element.addEventListener("blur", () => {
+      console.log("onblur");
+      this.renderReadOnly(element);
+    });
     parent.replaceChild(element, e);
   }
 }

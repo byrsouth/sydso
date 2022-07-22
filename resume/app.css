@@ -76,9 +76,8 @@ span {
 	text-decoration-style: dotted;
     font-size: small;
 	color: gray;
-	margin-right: 3px;
-	margin-left: 3px;
-   
+	margin: 10px;
+    cursor:pointer;
 	
 }
 

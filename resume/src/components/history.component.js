@@ -1,10 +1,14 @@
+import { ComponentUtils } from "./utils.component.js";
 import { HistoryDetail } from "/src/types.js";
-export class HistoryComponent {
+
+export class HistoryComponent extends ComponentUtils{
    
+	
 	div = document.createElement('div');
 	
 
 	constructor(id, placeholder){
+		super();
 		const span = document.createElement('span');
 		const startDatePicker = document.createElement('input');
 		const endDatePicker = document.createElement('input');
@@ -44,5 +48,7 @@ export class HistoryComponent {
 	renderComponent() {
 		return this.div;
 	}
+
+	
 
 }
