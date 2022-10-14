@@ -1,1 +1,5 @@
 Adding to test file.
+Appending
+text
+to 
+file
