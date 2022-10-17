@@ -21,14 +21,11 @@ jobs:
           echo "${{github.token}}"
       - name: Simple JS Action
         id: greet
-        uses: actions/hello-world-javascript-action@v1 #Can also use @tag, @branch and @commit_id
+        uses: actions/hello-world-javascript-action@v1 #A github action can also use @tag, @branch and @commit_id
         with: #input to action.
           who-to-greet: Byron
       - name: Log Greeting Time
         run: echo "${{steps.greet.outputs.time}}"
-
-
-
 # Environment Variables
 # $GITHUB_SHA: The commit id that triggered this workflow to run.
 # $GITHUB_RESPOSITORY: The username and repo name.
