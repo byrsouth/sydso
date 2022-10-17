@@ -12,7 +12,7 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_RESPOSITORY
           echo $GITHUB_WORKSPACE
-          echo "${{github}}"
+          echo "${{github.token}}"
       - name: checkout
         uses: actions/checkout@v3
       - name: List Files 
@@ -31,5 +31,6 @@ jobs:
 
 # Environment Variables
 # $GITHUB_SHA: The commit id that triggered this workflow to run.
-# $GITHUB_RESPOSITORY: The username and repo name
-# $GITHUB_WORKSPACE: The github working directory (/home/runner/work/{repo}/{repo})
+# $GITHUB_RESPOSITORY: The username and repo name.
+# $GITHUB_WORKSPACE: The github working directory (/home/runner/work/{repo}/{repo}).
+#  "${{github.token}}": Used to authenitcate with githun repository.
