@@ -4,10 +4,13 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
+      - name: List Files #In order to use ls or any files command we need to use the checkout aciton.
+                         #github.com/actions/checkout
         run: |
           pwd
-          ls
+          ls 
+      - name: checkout
+        uses: actions/checkout@v3
       - name: Simple JS Action
         id: greet
         uses: actions/hello-world-javascript-action@v1 #Can also use @tag, @branch and @commit_id
