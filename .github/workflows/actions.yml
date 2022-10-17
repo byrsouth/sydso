@@ -8,17 +8,17 @@ jobs:
                          #github.com/actions/checkout
         run: | 
           pwd
-          ls 
-          echo $GITHUB_SHA
-          echo $GITHUB_RESPOSITORY
-          echo $GITHUB_WORKSPACE
-          echo "${{github.token}}"
+          ls
       - name: checkout
         uses: actions/checkout@v3
       - name: List Files 
         run: |
           pwd
-          ls 
+          ls
+          echo $GITHUB_SHA
+          echo $GITHUB_RESPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{github.token}}"
       - name: Simple JS Action
         id: greet
         uses: actions/hello-world-javascript-action@v1 #Can also use @tag, @branch and @commit_id
