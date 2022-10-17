@@ -6,9 +6,13 @@ jobs:
     steps:
       - name: List Files #In order to use ls or any files command we need to use the checkout aciton.
                          #github.com/actions/checkout
-        run: |
+        run: | 
           pwd
           ls 
+          echo $GITHUB_SHA
+          echo $GITHUB_RESPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{github}}"
       - name: checkout
         uses: actions/checkout@v3
       - name: List Files 
@@ -22,3 +26,10 @@ jobs:
           who-to-greet: Byron
       - name: Log Greeting Time
         run: echo "${{steps.greet.outputs.time}}"
+
+
+
+# Environment Variables
+# $GITHUB_SHA: The commit id that triggered this workflow to run.
+# $GITHUB_RESPOSITORY: The username and repo name
+# $GITHUB_WORKSPACE: The github working directory (/home/runner/work/{repo}/{repo})
