@@ -4,10 +4,14 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List Files
+        run: |
+          pwd
+          ls
       - name: Simple JS Action
         id: greet
-        uses: actions/hello-world-javascript-action@v1
-        with:
+        uses: actions/hello-world-javascript-action@v1 #Can also use @tag, @branch and @commit_id
+        with: #input to action.
           who-to-greet: Byron
       - name: Log Greeting Time
         run: echo "${{steps.greet.outputs.time}}"
