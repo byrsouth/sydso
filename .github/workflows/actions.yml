@@ -1,5 +1,5 @@
 name: Actions Workflow
-on: [push]
+on: [push, pull_request]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
@@ -15,7 +15,7 @@ jobs:
         run: |
           pwd
           ls
-          echo $GITHUB_SHA
+          echo "GITHUB_SHA:" $GITHUB_SHA
           echo $GITHUB_RESPOSITORY
           echo $GITHUB_WORKSPACE
           echo "${{github.token}}"
