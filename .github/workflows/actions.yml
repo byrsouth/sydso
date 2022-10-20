@@ -1,21 +1,18 @@
 name: Actions Workflow
 #on: [push, pull_request]
-on:
-  push:
-  pull_request:
-    types: [closed,assigned, opened, reopened]
+on: [pull_request]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
       - name: List Files #In order to use ls or any files command we need to use the checkout aciton.
-                         #github.com/actions/checkout
-        run: | 
+        #github.com/actions/checkout
+        run: |
           pwd
           ls
       - name: checkout
         uses: actions/checkout@v3
-      - name: List Files 
+      - name: List Files
         run: |
           pwd
           ls
