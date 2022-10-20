@@ -6,3 +6,4 @@ file
 Updating Repo
 eof
 This is a test.
+This is test of the gitcm
